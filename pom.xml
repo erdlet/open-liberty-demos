@@ -13,7 +13,7 @@
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>open-liberty-demo</name>
+    <name>liberty-demo-parent</name>
     <description>Open Liberty Demos Parent POM</description>
 
     <properties>
