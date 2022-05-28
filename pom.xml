@@ -6,6 +6,7 @@
         <module>liberty-rest</module>
         <module>liberty-jsf</module>
         <module>liberty-mvc</module>
+        <module>common</module>
     </modules>
 
     <groupId>de.erdlet.libertydemo</groupId>
