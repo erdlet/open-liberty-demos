@@ -1,4 +1,4 @@
-package de.erdlet.demo.mvc;
+package de.erdlet.libertydemo.mvc;
 
 import jakarta.ws.rs.ApplicationPath;
 import jakarta.ws.rs.core.Application;

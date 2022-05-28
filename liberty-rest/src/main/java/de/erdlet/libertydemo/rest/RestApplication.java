@@ -1,4 +1,4 @@
-package de.erdlet.demo.rest;
+package de.erdlet.libertydemo.rest;
 
 import jakarta.ws.rs.ApplicationPath;
 import jakarta.ws.rs.core.Application;
