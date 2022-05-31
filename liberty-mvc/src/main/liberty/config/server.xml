@@ -14,7 +14,7 @@
         <httpEndpoint httpPort="${default.http.port}" httpsPort="${default.https.port}"
                       id="defaultHttpEndpoint" host="*"/>
 
-        <application location="liberty-jsf.war" type="war" context-root="/"/>
+        <application location="liberty-mvc.war" type="war" context-root="/"/>
 
         <!-- Derby Library Configuration -->
         <library id="derbyJDBCLib">
