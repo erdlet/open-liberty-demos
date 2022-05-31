@@ -16,8 +16,7 @@ public class Comment {
 
     private String author;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "post_id")
+    @ManyToOne(fetch = FetchType.LAZY)
     private Post post;
 
     public Comment() {
@@ -67,12 +66,12 @@ public class Comment {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Comment comment = (Comment) o;
-        return Objects.equals(id, comment.id) && Objects.equals(text, comment.text) && Objects.equals(author, comment.author);
+        return Objects.equals(id, comment.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, text, author);
+        return getClass().hashCode();
     }
 
     @Override
