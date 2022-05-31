@@ -1,4 +1,8 @@
 package de.erdlet.libertydemo.common.dao;
 
-public interface PostDao {
+import de.erdlet.libertydemo.common.model.Post;
+
+public interface PostDao extends Dao<Post, Long> {
+
+
 }

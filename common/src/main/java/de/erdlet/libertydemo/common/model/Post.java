@@ -2,13 +2,19 @@ package de.erdlet.libertydemo.common.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 @Entity
 @Table(name = "posts")
+@NamedQueries({
+        @NamedQuery(name = Post.FIND_ALL, query = "SELECT p FROM Post p"),
+        @NamedQuery(name = Post.FIND_BY_ID, query = "SELECT p FROM Post p JOIN FETCH p.comments WHERE p.id = :id")
+})
 public class Post {
-
+    public static final String FIND_ALL = "Post.findAll";
+    public static final String FIND_BY_ID = "Post.findById";
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,6 +27,7 @@ public class Post {
     private List<Comment> comments;
 
     public Post() {
+        this.comments = new ArrayList<>();
     }
 
     public Post(Long id, String title, String text, List<Comment> comments) {
@@ -78,5 +85,26 @@ public class Post {
                 ", title='" + title + '\'' +
                 ", text='" + text + '\'' +
                 '}';
+    }
+
+    public Comment addComment(final String text, final String author) {
+        final Comment comment = new Comment(text, author, this);
+        this.comments.add(comment);
+
+        return comment;
+    }
+
+    public Comment updateComment(final Comment comment) {
+        comments.set(comments.indexOf(comment), comment);
+        comment.setPost(this);
+
+        return comment;
+    }
+
+    public Comment removeComment(final Comment comment) {
+        comments.remove(comment);
+        comment.setPost(null);
+
+        return comment;
     }
 }

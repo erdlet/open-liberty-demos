@@ -6,7 +6,16 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "comments")
+@NamedQueries({
+        @NamedQuery(name = Comment.FIND_ALL, query = "SELECT c FROM Comment  c"),
+        @NamedQuery(name = Comment.FIND_BY_ID, query = "SELECT c FROM Comment c WHERE c.id = :id"),
+        @NamedQuery(name = Comment.FIND_BY_POST, query = "SELECT c FROM Comment c WHERE c.post = :post")
+})
 public class Comment {
+
+    public static final String FIND_ALL = "Comment.findAll";
+    public static final String FIND_BY_ID = "Comment.findById";
+    public static final String FIND_BY_POST = "Comment.findByPost";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,8 +31,7 @@ public class Comment {
     public Comment() {
     }
 
-    public Comment(Long id, String text, String author, Post post) {
-        this.id = id;
+    public Comment(final String text, final String author, final Post post) {
         this.text = text;
         this.author = author;
         this.post = post;
