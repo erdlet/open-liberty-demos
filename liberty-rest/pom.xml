@@ -30,6 +30,12 @@
             <type>pom</type>
             <scope>provided</scope>
         </dependency>
+
+        <dependency>
+            <groupId>de.erdlet.libertydemo</groupId>
+            <artifactId>common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
