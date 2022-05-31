@@ -36,10 +36,25 @@
             <artifactId>common</artifactId>
             <version>${project.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derby</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derbytools</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derbyshared</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
-        <finalName>liberty-rest</finalName>
+        <finalName>liberty-mvc</finalName>
         <plugins>
             <plugin>
                 <groupId>io.openliberty.tools</groupId>
