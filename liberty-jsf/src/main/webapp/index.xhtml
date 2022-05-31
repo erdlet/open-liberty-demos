@@ -4,13 +4,26 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
-    <title>Jakarta EE 9 - Greeting</title>
+    <title>liberty-jsf: Post overview</title>
 </h:head>
 
 <h:body>
-    <h1>Index page of liberty-jsf</h1>
-    <h:outputText value="#{indexController.greeting}"/>
+    <h1>All posts</h1>
+
+    <c:choose>
+        <c:when test="#{indexController.containsPosts()}">
+            <ui:repeat value="#{indexController.posts}" var="post">
+                <h:outputText value="#{post}"/>
+            </ui:repeat>
+        </c:when>
+        <c:otherwise>
+            <h:outputText value="No posts available"/>
+        </c:otherwise>
+    </c:choose>
+
 </h:body>
 </html>
