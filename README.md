@@ -1,6 +1,6 @@
 # Open Liberty samples
 
-In this repository I want to implement a simple web application using different technologies for accessing the application (UI, HTTP API, ...).
+In this repository I want to implement a simple web application using different technologies for accessing the application (UI, HTTP API, ...). It uses the `jakarta.*` namespace.
 
 ## Maven modules
 
